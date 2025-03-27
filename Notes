@@ -1,0 +1,71 @@
+Snake Representation
+
+We will represent the snake as a list of pairs of x, y coordinates:
+
+snake = [[0, 0], [20, 0], [40, 0], [60, 0]]
+
+The segments of the snake are currently all lying horizontally with y coordinates of 0.
+
+########################################################################################
+ To begin with:
+ snake = [[0, 0], [20, 0], [40, 0], [60, 0]]
+
+
+###########################################################################################
+
+To move, we first create a new list items for the new head:
+
+new_head = snake[-1].copy((
+
+snake[-1] means the rightmost item. It must be copied or the original would be modified by the next step.
+
+new_head is now [60,0]
+
+###################################################################################
+Next, we increment the x coordinate of new_head with:
+
+new_head[0] += 20,
+
+giving [80, 0]
+
+(This is shorthand for new_head[0] = new_head[0] + 20.
+
+###################################################################################
+
+Then. we append it to the snake:
+
+ `snake.append(new_head)`
+
+ The snake now looks like this:
+
+ `[[0, 0], [20, 0], [40, 0], [60, 0], 80, 0]]`
+
+ ####################################################################################
+  Finally we remove the leftmost item (`[0,0]`),
+  using `snake.pop(0)`.
+
+
+
+
+
+
+  ###################################################
+  Game Loops
+  - Clear the existing snake from the screen
+  - Draw the snake in its new position
+  - Check for the collisions with the walls, self or food, and handle appropriately
+  - Update the Score.
+
+
+  ############################################
+  # A function to find the distance between Points
+
+  - Using Pythagorean Theorem
+
+  def get_distance(pos1, pos2):
+    x1, y1 = pos1
+    x2, y2 = pos2
+    distance = ((y2 - y1) ** 2 + (x2 - x1) ** ) ** 0.5 #Pythagoras
+    return distance
+
+
